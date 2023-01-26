@@ -3,6 +3,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: linter-pipeline
+  namespace: dev-corby
 spec:
   params:
     - name: repository
