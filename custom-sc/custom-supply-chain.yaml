@@ -52,17 +52,7 @@ spec:
       resource: source-provider
     templateRef:
       kind: ClusterImageTemplate
-      options:
-      - name: kpack-template
-        selector:
-          matchFields:
-          - key: spec.params[?(@.name=="dockerfile")]
-            operator: DoesNotExist
-      - name: kaniko-template
-        selector:
-          matchFields:
-          - key: spec.params[?(@.name=="dockerfile")]
-            operator: Exists
+      name: kpack-template
   - images:
     - name: image
       resource: image-provider
