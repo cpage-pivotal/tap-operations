@@ -26,6 +26,10 @@ spec:
     templateRef:
       kind: ClusterSourceTemplate
       name: source-template
+  - name: lint-source
+    templateRef:
+      kind: ClusterSourceTemplate
+      name: source-linter    
   - name: image-provider
     params:
     - default: default
