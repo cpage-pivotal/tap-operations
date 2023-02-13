@@ -1,7 +1,6 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterSourceTemplate
 metadata:
-  annotations:
   name: sonarqube-template
 spec:
   params:
