@@ -40,7 +40,6 @@ spec:
           kind: Task
         matchingLabels:
           apps.tanzu.vmware.com/sonarqube: "sonarqube"
-          apps.tanzu.vmware.com/language: #@ data.values.workload.metadata.labels["apps.tanzu.vmware.com/language"]
           
       inputs:
         source-url: #@ data.values.source.url
@@ -53,4 +52,3 @@ spec:
         #@ end
 
         sonar-project-key: #@ data.values.workload.metadata.name
-        wait_on_sonar_analysis: #@ data.values.params.wait_on_sonar_analysis

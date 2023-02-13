@@ -9,7 +9,6 @@ spec:
     revision: spec.params[?(@.name=="source-revision")].value
     url:      spec.params[?(@.name=="source-url")].value
 
-
   template:
     apiVersion: tekton.dev/v1beta1
     kind: TaskRun
@@ -29,19 +28,10 @@ spec:
         value: $(runnable.spec.inputs.sonar-project-key)$
       - name: SONAR_LOGIN
         value: squ_689ee47bf781dd85e7d290025fe3fd4d4ffb1c15
-      - name: WAIT_ON_SONAR_ANALYSIS
-        value: $(runnable.spec.inputs.wait_on_sonar_analysis)$
 
       taskRef:
-        name: $(selected.metadata.name)$
+        name: sonarqube-scanner
 
       workspaces:
-        - name: custom-maven-settings
-          secret:
-            secretName: maven-settings
-        - name: maven-settings
-          subPath: maven-repo-cache
-          persistentVolumeClaim:
-            claimName: supplychainpvc
-        - name: supplychain-workspace
+        - name: tmp-workspace
           emptyDir: {}
