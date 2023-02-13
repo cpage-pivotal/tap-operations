@@ -45,10 +45,8 @@ spec:
 
   - name: source-analyzer
     params:
-    - default: scan-policy
-      name: scanning_source_policy
-    - default: blob-source-scan-template
-      name: scanning_source_template
+    - default: true
+      name: wait_on_sonar_analysis
     sources:
     - name: source
       resource: source-provider
