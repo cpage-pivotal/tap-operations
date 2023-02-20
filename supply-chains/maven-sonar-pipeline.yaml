@@ -16,7 +16,7 @@ spec:
           workspace: shared-workspace
       params:
         - name: url
-          value: https://gitea.tap.corby.cc/gitea_admin/tap-demos-w06-s519-1676000140.git
+          value: https://github.com/cpage-pivotal/spring-sensors
         - name: subdirectory
           value: ""
         - name: deleteExisting
