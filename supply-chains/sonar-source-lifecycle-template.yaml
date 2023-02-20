@@ -1,0 +1,30 @@
+apiVersion: carto.run/v1alpha1
+kind: ClusterSourceTemplate
+metadata:
+  name: sonarqube-lifecycle-template
+spec:
+  template:
+    apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: code-analysis-
+    spec:
+      pipelineRef:
+        name: maven-sonar-pipeline
+      params:
+        - name: repository
+          value: $(workload.spec.source.git.url)$
+        - name: revision
+          value: $(workload.spec.source.git.ref.branch)$
+      workspaces:
+        - name: maven-settings
+          configMap:
+            name: custom-maven-settings
+        - name: shared-workspace
+          persistentvolumeclaim:
+            claimName: supplychainpvc
+    
+      urlPath: .status.pipelineSpec.tasks[0].params[0].value
+      revisionPath: .status.pipelineSpec.tasks[0].params[1].value
+      lifecycle: tekton
+
