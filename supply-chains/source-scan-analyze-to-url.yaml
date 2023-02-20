@@ -52,7 +52,7 @@ spec:
       resource: source-provider
     templateRef:
       kind: ClusterSourceTemplate
-      name: sonarqube-template
+      name: sonarqube-lifecycle-template
 
   - name: image-provider
     params:
