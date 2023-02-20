@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: maven-sonar-pipeline
+  namespace: default
 spec:
   workspaces:
     - name: shared-workspace
